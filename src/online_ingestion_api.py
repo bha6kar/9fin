@@ -30,7 +30,7 @@ def get_item_id(doc_id: str) -> dict:
 
         return result
     except Exception as e:
-        logger.error(f"Error processing document ID {doc_id}: {str(e)}")
+        print(f"Error processing document ID {doc_id}: {str(e)}")
         return {}
 
 
@@ -53,7 +53,7 @@ def get_item_id_handler(doc_id: str) -> jsonify:
         else:
             return jsonify(result)
     except Exception as e:
-        logger.error(f"Error handling request for document ID {doc_id}: {str(e)}")
+        print(f"Error handling request for document ID {doc_id}: {str(e)}")
         return jsonify({"message": "Internal Server Error"}), 500
 
 
