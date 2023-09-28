@@ -1,4 +1,3 @@
-"""Common util file for online and offline inference"""
 import csv
 import json
 from pathlib import Path
@@ -49,13 +48,15 @@ def load_csv_as_dict(csv_file: str) -> dict:
     Returns:
         dict: A dictionary of the CSV data with 2 columns.
     """
-
-    with open(csv_file, "r") as file:
-        reader = csv.reader(file)
-        csv_dict = {}
-        for row in reader:
-            csv_dict[row[0]] = row[1]
-    return csv_dict
+    try:
+        with open(csv_file, "r") as file:
+            reader = csv.reader(file)
+            csv_dict = {}
+            for row in reader:
+                csv_dict[row[0]] = row[1]
+        return csv_dict
+    except FileNotFoundError:
+        print(f"The file at {csv_file} does not exist.")
 
 
 def get_page_result(
@@ -78,9 +79,11 @@ def get_page_result(
     """
 
     # Load the document text and page numbers.
-
-    with open(text_file_path, "r") as file:
-        text_file = json.load(file)
+    try:
+        with open(text_file_path, "r") as file:
+            text_file = json.load(file)
+    except FileNotFoundError:
+        print(f"The file at {text_file_path} does not exist.")
 
     page_dict = load_csv_as_dict(page_csv_path)
 
@@ -112,5 +115,8 @@ def dump_vectors_to_file(vectors: List[dict], output_file: str) -> None:
           }
       output_file (str): The path to the output file.
     """
-    with open(output_file, "w") as file:
-        json.dump(vectors, file, indent=4)
+    try:
+        with open(output_file, "w") as file:
+            json.dump(vectors, file, indent=4)
+    except Exception as e:
+        print(f"Error writing to {output_file}: {e}")
