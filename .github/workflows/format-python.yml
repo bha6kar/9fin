@@ -1,0 +1,41 @@
+name: Lint and Format Python Code
+
+on:
+  push:
+    branches:
+      - main # Adjust the branch name as needed
+
+jobs:
+  lint-and-format:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+
+      - name: Install dependencies
+        run: pip install black flake8
+
+      - name: Lint Python code
+        run: flake8 ./src/*.py
+
+      - name: Format Python code with Black
+        run: black ./src/*.py
+
+      - name: Commit and Push Changes (Conditional)
+        run: |
+          if git diff-index --quiet HEAD --; then
+            echo "No changes to commit."
+          else
+            git config user.name "GitHub Actions"
+            git config user.email "actions@github.com"
+            git commit -am "Lint and format Python code"
+            git push
+          fi
+        env:
+          GH_PAT: ${{ secrets.GH_PAT }}
