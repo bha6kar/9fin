@@ -37,7 +37,7 @@ def offline_ingestion(doc_id: str) -> List[dict]:
 
 
 if __name__ == "__main__":
-    document_id = "007"
+    document_id = "12345"
     vectors = offline_ingestion(document_id)
     output_file = "output/output_file.json"
     dump_vectors_to_file(vectors, output_file)

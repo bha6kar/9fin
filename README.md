@@ -17,7 +17,7 @@ sh build_offline_run.sh <path_to_folder>
 To run the application for online ingestion from api use the following command:
 
 ```bash
-sh build_online_run.sh <path_to_folder>  
+sh build_online_run.sh
 ````
 
 It will run the server at `http://127.0.0.1:5007` and to get the result just run `http://127.0.0.1:5007/api/007`. Change the 007 to any doc_id as desired.
