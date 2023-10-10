@@ -7,7 +7,7 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.9.6"
-torch = "1.13.1"
+torch = "2.1.0"
 sentence-transformers = "2.2.2"
 flask = "3.0.0"
 
