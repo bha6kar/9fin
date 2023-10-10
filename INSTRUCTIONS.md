@@ -51,5 +51,7 @@ We've listed some of the questions that you can think about for the interview.
 - How did you approach this task? What were all the things you could have done?
 - If we were to deploy this to serverless or persistent instance on the cloud, what would we have to consider?
 - What would you tell your colleague for the future (in terms of improved collaboration/reduced repeated work)
+  - create functions as per wherever needed and try to pull it out in util.py so that we can reuse same functions for online as well as offline
 - If we added performance constraints on the docker container (or serverless function), what would happen to your application / what would we need to consider changing (e.g 1.5 CPU / 2GB MEM)?
 - If we decided to use a managed store for all these vectors, how we go about saving these enriched vectors efficiently? 
+  - save in binary format .npy or .pkl for performance but willl be larger .pb for compressed but will be slower 

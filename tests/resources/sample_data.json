@@ -1,0 +1,4 @@
+[
+  { "text": "Sample text 1", "pages": ["key"] },
+  { "text": "Sample text 2", "pages": ["key2"] }
+]
