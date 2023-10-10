@@ -29,14 +29,14 @@ for emb in embs:
     normalized_embs.append(normalized_emb)
 
 
-same_cos = util.cos_sim(normalized_embs[0], normalized_embs[1])
+same_cos = util.cos_sim(normalized_embs[0], embs[1])
 diff_cos = util.cos_sim(normalized_embs[0], normalized_embs[2])
 # HACK:// why does this have a rounding error - shouldn't this be determinstic?
 # set_cudnn_deterministic(True)
 
 # Specify a tolerance for the isclose function
-tolerance = 1e-6
-
+tolerance = 1e-06
+print(same_cos)
 assert isclose(same_cos, tensor(1.0000), atol=tolerance)
 
 assert diff_cos < same_cos

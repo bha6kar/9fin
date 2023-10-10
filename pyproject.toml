@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "9fin"
+version = "0.1.0"
+description = ""
+authors = ["Bhaskar <bha6kar@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9.6"
+torch = "1.13.1"
+sentence-transformers = "2.2.2"
+flask = "2.3.3"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
