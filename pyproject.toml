@@ -9,7 +9,7 @@ readme = "README.md"
 python = "^3.9.6"
 torch = "1.13.1"
 sentence-transformers = "2.2.2"
-flask = "2.3.3"
+flask = "3.0.0"
 
 
 [build-system]
