@@ -6,6 +6,9 @@ from sentence_transformers import SentenceTransformer
 
 from util import dump_vectors_to_file, get_page_result
 
+# Load the sentence transformer model.
+model = SentenceTransformer("tmp/custommodel")
+
 
 def offline_ingestion(doc_id: str) -> List[dict]:
     """Offline ingestion function.
@@ -28,9 +31,6 @@ def offline_ingestion(doc_id: str) -> List[dict]:
     text_file_path = Path(f"data/texts_{doc_id}.json")
     page_csv_path = Path(f"data/pages_{doc_id}.csv")
 
-    # Load the sentence transformer model.
-    model = SentenceTransformer("tmp/custommodel")
-
     result = get_page_result(text_file_path, page_csv_path, model)
 
     return result
@@ -38,6 +38,7 @@ def offline_ingestion(doc_id: str) -> List[dict]:
 
 if __name__ == "__main__":
     document_id = "007"
+    version = 1
     vectors = offline_ingestion(document_id)
-    output_file = "output/output_file.json"
+    output_file = f"output/output_file_{document_id}{version}.bin"
     dump_vectors_to_file(vectors, output_file)

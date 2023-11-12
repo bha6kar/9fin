@@ -1,4 +1,4 @@
-# 9fin
+# Sentence Transformer
 
 ## Run offline ingestion 
 

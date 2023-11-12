@@ -39,6 +39,10 @@ def encode_text(
     return vector
 
 
+def split_encode():
+    pass
+
+
 def load_csv_as_dict(csv_file: str) -> dict:
     """Converts a CSV file to a dictionary of 2 columns.
 

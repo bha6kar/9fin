@@ -10,7 +10,7 @@ ENV MEMORY_CONSTRAINTS="2g"
 COPY requirements.txt .
 RUN pip install -r requirements.txt
 
-COPY tmp/custommodel /app/tmp/custommodel
+COPY tmp/custommodel /app/tmp/custommodelv2
 COPY data /app/data
 COPY src /app
 

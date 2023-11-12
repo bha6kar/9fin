@@ -12,7 +12,7 @@ def encode(samples):
         # RVD:// not sure how to handle if the input is greater than the max input sequence length
         if len(s) > model.max_seq_length:
             s = s[: model.max_seq_length]
-        vec = model.encode([s])[0]
+        vec = model.encode(s, normalize_embeddings=True)
         x.append(vec)
     return x
 
